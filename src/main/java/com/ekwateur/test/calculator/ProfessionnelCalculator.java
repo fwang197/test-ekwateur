@@ -5,7 +5,7 @@ import com.ekwateur.test.models.Client;
 import com.ekwateur.test.models.Professionnel;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service(ProfessionnelCalculator.BEAN_ID)
 public final class ProfessionnelCalculator implements Calculator {
 
     public static final String BEAN_ID = "ProfessionnelCalculator";

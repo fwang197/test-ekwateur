@@ -4,7 +4,7 @@ import com.ekwateur.test.enums.Consommation;
 import com.ekwateur.test.models.Client;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service(ParticulierCalculator.BEAN_ID)
 public final class ParticulierCalculator implements Calculator {
 
     public static final String BEAN_ID = "ParticulierCalculator";
