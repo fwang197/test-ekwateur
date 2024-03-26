@@ -18,29 +18,29 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController("")
 @Slf4j
 @AllArgsConstructor
+@RequestMapping("/facture")
 public class FacturationController {
 
     private final CalculatorFactory calculatorFactory;
     private final ParticulierMapper particulierMapper;
     private final ProfessionnelMapper professionnelMapper;
 
-    @PostMapping("/facture/particulier")
+    @PostMapping("/particulier")
     public ResponseEntity postParticulier(@Valid @RequestBody ParticulierDto particulierDto) {
         Particulier particulier = particulierMapper.mapToParticulier(particulierDto);
         FactureDto facture = new FactureDto(particulier.getRefClient(), montantTotal(particulierDto.consommations(), particulier, particulierDto.kwh(), TypeClient.PART));
         return ResponseEntity.ok(facture);
     }
 
-    @PostMapping("/facture/professionnel")
+    @PostMapping("/professionnel")
     public ResponseEntity postProfessionnel(@Valid @RequestBody ProfessionnelDto professionnelDto) {
         Professionnel professionnel = professionnelMapper.mapToProfessionnel(professionnelDto);
         FactureDto facture = new FactureDto(professionnel.getRefClient(), montantTotal(professionnelDto.consommations(), professionnel, professionnelDto.kwh(), TypeClient.PRO));
