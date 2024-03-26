@@ -68,7 +68,7 @@ public class ProfessionelFactoryTests {
         double actual = particulierCalculator.calculate(professionnel, Consommation.ELECTRICITE, 3.5);
 
         // Then
-        assertEquals(expectedTotal, expectedTotal);
+        assertEquals(expectedTotal, actual);
     }
 
     private static Stream<Arguments> caToTotalElectricite() {

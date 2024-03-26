@@ -9,5 +9,4 @@ public abstract sealed class Client permits Professionnel, Particulier {
 
     private final String refClient;
 
-
 }

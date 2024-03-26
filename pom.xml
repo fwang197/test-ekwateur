@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ekwateur</groupId>
-	<artifactId>test</artifactId>
+	<artifactId>test-ekwateur</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>test</name>
 	<description>Demo project for Ekwateur interview</description>
